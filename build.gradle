@@ -43,4 +43,11 @@ javafx {
     modules = [ 'javafx.controls' ]
 }
 
-mainClassName = 'HelloFX'
+application {
+    if (project.hasProperty("launch")) {
+        mainClass.set("eu.goldenkoopa.javafx.${project.property("launch")}")
+    } else {
+        mainClass.set("eu.goldenkoopa.javafx.HelloFX") // Fallback main class
+    }
+}
+// mainClassName = 'HelloFX'

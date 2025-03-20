@@ -9,28 +9,28 @@ import javafx.stage.Stage;
 
 public class HelloFX extends Application {
 
-    @Override
-    public void start(Stage stage) {
-        GridPane gridpane = new GridPane();
+  @Override
+  public void start(Stage stage) {
+    GridPane gridpane = new GridPane();
 
-        System.out.println(System.getProperty("user.dir"));
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++) {
-                ImageView imgView = new ImageView(new Image(
-                        "file:src/main/resources/img" + (i * 2 + j) + ".jpg"));
-                imgView.setFitWidth(300);
-                imgView.setFitHeight(300);
-                gridpane.add(imgView, i, j);
-            }
-        }
-
-        Scene scene = new Scene(gridpane, 640, 480);
-        stage.setScene(scene);
-        stage.show();
+    System.out.println(System.getProperty("user.dir"));
+    for (int i = 0; i < 2; i++) {
+      for (int j = 0; j < 2; j++) {
+        ImageView imgView = new ImageView(new Image(
+            "file:src/main/resources/img" + (i * 2 + j) + ".jpg"));
+        imgView.setFitWidth(300);
+        imgView.setFitHeight(300);
+        gridpane.add(imgView, i, j);
+      }
     }
 
-    public static void main(String[] args) {
-        launch();
-    }
+    Scene scene = new Scene(gridpane, 640, 480);
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public static void main(String[] args) {
+    launch();
+  }
 
 }

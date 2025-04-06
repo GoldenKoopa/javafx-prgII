@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -20,7 +21,7 @@ public class VerticalFx extends Application {
 
     for (int i = 0; i < 5; i++) {
       Text text = new Text("Java");
-      text.setFont(Font.font("Times Roman", FontWeight.BOLD, 22));
+      text.setFont(Font.font("Times Roman", FontWeight.BOLD, FontPosture.ITALIC, 22));
       text.setFill(Color.rgb(random.nextInt(256), random.nextInt(256), random.nextInt(256)));
       text.setOpacity(random.nextDouble());
       text.setRotate(90);

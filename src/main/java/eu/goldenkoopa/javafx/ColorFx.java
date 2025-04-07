@@ -2,7 +2,6 @@ package eu.goldenkoopa.javafx;
 
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -17,7 +16,7 @@ public class ColorFx extends Application {
 
   @Override
   public void start(Stage primaryStage) {
-    Text text = new Text("Colorful Text");
+    Text text = new Text("show colors");
     text.setFont(Font.font(30));
 
     Slider sliderRed = createColorSlider();

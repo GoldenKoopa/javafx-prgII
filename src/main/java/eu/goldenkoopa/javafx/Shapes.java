@@ -9,7 +9,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 public class Shapes extends Application {
 
-  private Pane drawingPane = new Pane();
+  private StackPane drawingPane = new StackPane();
 
   @Override
   public void start(Stage primaryStage) {
@@ -72,7 +72,7 @@ public class Shapes extends Application {
         break;
 
       case "Rectangle":
-        Rectangle rectangle = new Rectangle(150, 150, 100, 60);
+        Rectangle rectangle = new Rectangle(150, 170, 100, 60);
         rectangle.setStroke(Color.BLACK);
         rectangle.setFill(isFilled ? Color.GREEN : Color.TRANSPARENT);
         drawingPane.getChildren().add(rectangle);

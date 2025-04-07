@@ -9,6 +9,8 @@ import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
 public class LinesFx extends Application {
+  private int WIDTH = 400;
+  private int HEIGHT = 400;
   private double currentX;
   private double currentY;
   private static final double STEP = 20;
@@ -16,7 +18,7 @@ public class LinesFx extends Application {
   @Override
   public void start(Stage primaryStage) {
     Pane pane = new Pane();
-    Scene scene = new Scene(pane, 400, 400);
+    Scene scene = new Scene(pane, WIDTH, HEIGHT);
 
     currentX = pane.getWidth() / 2;
     currentY = pane.getHeight() / 2;
@@ -25,18 +27,37 @@ public class LinesFx extends Application {
       double prevX = currentX;
       double prevY = currentY;
 
-      if (event.getCode() == KeyCode.RIGHT) {
-        currentX += STEP;
-      } else if (event.getCode() == KeyCode.LEFT) {
-        currentX -= STEP;
-      } else if (event.getCode() == KeyCode.UP) {
-        currentY -= STEP;
-      } else if (event.getCode() == KeyCode.DOWN) {
-        currentY += STEP;
+      switch (event.getCode()) {
+        case KeyCode.RIGHT:
+          if (currentX + STEP <= WIDTH) {
+            currentX += STEP;
+          }
+          break;
+        case KeyCode.LEFT:
+          if (currentX - STEP >= 0) {
+            currentX -= STEP;
+          }
+          break;
+        case KeyCode.UP:
+          if (currentY - STEP >= 0) {
+            currentY -= STEP;
+          }
+          break;
+        case KeyCode.DOWN:
+          if (currentY + STEP <= HEIGHT) {
+            currentY += STEP;
+          }
+          break;
+        default:
+          break;
       }
 
       Line line = new Line(prevX, prevY, currentX, currentY);
-      line.setStroke(Color.BLACK);
+      line.setStroke(
+          Color.rgb((int) ((currentY + prevY) / 2 / HEIGHT * 255),
+              0,
+              (int) ((currentX + prevX) / 2 / WIDTH * 255)));
+      line.setStrokeWidth(5);
       pane.getChildren().add(line);
     });
 
